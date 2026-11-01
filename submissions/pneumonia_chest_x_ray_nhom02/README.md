@@ -1,15 +1,15 @@
 # Tóm tắt bài làm
 
-- **Đề tài:** (điền tên đề tài)
-- **Nhóm:** (mã nhóm — không dùng tên thật)
-- **Mô hình chính:** (vd Random Forest + SHAP)
-- **Kết quả nổi bật:** (1-2 chỉ số chính, vd AUC/F1)
+- **Đề tài:** Automated Pneumonia Detection from Chest X-Ray Images
+- **Nhóm:** 02
+- **Mô hình chính:** ImageNet and EfficientNet-B0 with a one-logit head
+- **Kết quả nổi bật:** pooled AUROC = 0.903 (Guangzhou = 0.988, NIH = 0.748) with overall sensitivity = 0.75 (Guangzhou = 0.94, NIH = 0.56)and specificity = 0.87 (Guangzhou = 0.96, NIH = 0.79);  
 
 ## Cấu trúc thư mục
 
-- `report/` — báo cáo (PDF hoặc Markdown)
+- `report/` — báo cáo (PDF)
 - `src/` — mã nguồn (notebook/script)
-- `slides/` — slide thuyết trình (nếu có)
+- `slides/` — slide thuyết trình
 
 ## Cách chạy lại (reproducibility)
 
