@@ -1,0 +1,157 @@
+{
+  "run_name": "guangzhou-nih_resizefirst_matchAB_s2",
+  "config": {
+    "TRAIN_SOURCES": [
+      "guangzhou",
+      "nih"
+    ],
+    "CLAHE_FIRST": false,
+    "USE_CLAHE": true,
+    "MATCH_GZ_ASPECT": true,
+    "MATCH_GZ_BORDER": true,
+    "BALANCE_SOURCE_PRIORS": true,
+    "INTENSITY_NORM": "none",
+    "EPOCHS": 4,
+    "DEBUG_FRAC": 1.0,
+    "SPLIT": "per-source-v2",
+    "SELECT_ON": "mean_source",
+    "TRAIN_FRACTION": 1.0,
+    "SEED": 42,
+    "THRESHOLD_MODE": "per_source"
+  },
+  "n": {
+    "train": 2865,
+    "val": 562,
+    "test": 555
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.4822807400326454,
+      "val_auroc": 0.8632727262808763,
+      "val_per_source": {
+        "guangzhou": 0.9647295321637426,
+        "nih": 0.7618159203980099
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.36714931614111856,
+      "val_auroc": 0.8770652506506542,
+      "val_per_source": {
+        "guangzhou": 0.9856999269005848,
+        "nih": 0.7684305744007237
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.29784622546057843,
+      "val_auroc": 0.8820966935656644,
+      "val_per_source": {
+        "guangzhou": 0.9890350877192982,
+        "nih": 0.7751582994120308
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.2781634549819986,
+      "val_auroc": 0.8803118577765081,
+      "val_per_source": {
+        "guangzhou": 0.9904970760233918,
+        "nih": 0.7701266395296246
+      }
+    }
+  ],
+  "threshold": 0.6517430543899536,
+  "thresholds": {
+    "mode": "per_source",
+    "pooled": 0.6517430543899536,
+    "guangzhou": 0.6437169313430786,
+    "nih": 0.5770649313926697
+  },
+  "overall": {
+    "auroc": 0.903102394693547,
+    "accuracy": 0.8162162162162162,
+    "auroc_ci": [
+      0.8766524036503524,
+      0.9278631872938043
+    ],
+    "sens_ci": [
+      0.6619354503404189,
+      0.7804903776885871
+    ],
+    "spec_ci": [
+      0.8595890410958904,
+      0.9278741859420615
+    ],
+    "masked": {
+      "hide_center": 0.6700963622594208,
+      "center_only": 0.7246363565142455
+    }
+  },
+  "per_source": {
+    "guangzhou": {
+      "n": 269,
+      "auroc": 0.9884107796384607,
+      "sens": 0.9448818897637795,
+      "spec": 0.9577464788732394,
+      "auroc_ci": [
+        0.9786956521739131,
+        0.9956746327377753
+      ],
+      "sens_ci": [
+        0.90297681944261,
+        0.9821428571428571
+      ],
+      "spec_ci": [
+        0.9305511603375528,
+        0.9924242424242424
+      ],
+      "masked": {
+        "hide_center": 0.7970500166352446,
+        "center_only": 0.8131862038371963
+      }
+    },
+    "nih": {
+      "n": 286,
+      "auroc": 0.7479783037475346,
+      "sens": 0.5615384615384615,
+      "spec": 0.7948717948717948,
+      "auroc_ci": [
+        0.6894458226287505,
+        0.8018975604283596
+      ],
+      "sens_ci": [
+        0.40310077519379844,
+        0.5929329745596869
+      ],
+      "spec_ci": [
+        0.77776008492569,
+        0.8875
+      ],
+      "masked": {
+        "hide_center": 0.5256410256410255,
+        "center_only": 0.7075443786982248
+      }
+    }
+  },
+  "probes": {
+    "source | image stats": 0.949376,
+    "source | border-only stats": 0.720024,
+    "source | aspect ratio only": 0.99681,
+    "source | raw size / file size": 1.0,
+    "guangzhou label | image stats": 0.8662880000000001,
+    "guangzhou label | border-only stats": 0.604584,
+    "guangzhou label | aspect ratio only": 0.423952,
+    "guangzhou label | raw size / file size": 0.953296,
+    "nih label | image stats": 0.621888,
+    "nih label | border-only stats": 0.5928880000000001,
+    "nih label | aspect ratio only": 0.42160000000000003,
+    "nih label | raw size / file size": 0.5007199999999999
+  },
+  "test_set_ids": {
+    "guangzhou": "56711b02",
+    "nih": "74d92a9a"
+  },
+  "source_only_baseline_auroc": 0.491
+}
