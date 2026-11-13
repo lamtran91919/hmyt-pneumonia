@@ -1,0 +1,151 @@
+{
+  "run_name": "guangzhou-nih_resizefirst_matchABS_s2",
+  "config": {
+    "TRAIN_SOURCES": [
+      "guangzhou",
+      "nih"
+    ],
+    "CLAHE_FIRST": false,
+    "USE_CLAHE": true,
+    "MATCH_GZ_ASPECT": true,
+    "MATCH_GZ_BORDER": true,
+    "MATCH_GZ_SIZE": true,
+    "DEGRADE_AUG": false,
+    "BALANCE_SOURCE_PRIORS": true,
+    "INTENSITY_NORM": "none",
+    "EPOCHS": 4,
+    "DEBUG_FRAC": 1.0,
+    "SPLIT": "per-source-v2",
+    "SELECT_ON": "mean_source",
+    "TRAIN_FRACTION": 1.0
+  },
+  "n": {
+    "train": 2667,
+    "val": 509,
+    "test": 526
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.4954210190143664,
+      "val_auroc": 0.866963973929148,
+      "val_per_source": {
+        "guangzhou": 0.9510242843576177,
+        "nih": 0.7829036635006784
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.3859050934418427,
+      "val_auroc": 0.8806610631859388,
+      "val_per_source": {
+        "guangzhou": 0.9725953059286393,
+        "nih": 0.7887268204432383
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.3289499143267733,
+      "val_auroc": 0.8781509282131172,
+      "val_per_source": {
+        "guangzhou": 0.9719848053181387,
+        "nih": 0.7843170511080958
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.29599052981061796,
+      "val_auroc": 0.8821420540947904,
+      "val_per_source": {
+        "guangzhou": 0.9761226427893095,
+        "nih": 0.7881614654002714
+      }
+    }
+  ],
+  "threshold": 0.5707440376281738,
+  "overall": {
+    "auroc": 0.8872685017067324,
+    "accuracy": 0.7832699619771863,
+    "auroc_ci": [
+      0.8572166671633933,
+      0.9134015990124618
+    ],
+    "sens_ci": [
+      0.6463819830359754,
+      0.7701640148212728
+    ],
+    "spec_ci": [
+      0.8028661214599425,
+      0.8849024006601172
+    ],
+    "masked": {
+      "hide_center": 0.6779286803689448,
+      "center_only": 0.8419202556467427
+    }
+  },
+  "per_source": {
+    "guangzhou": {
+      "n": 240,
+      "auroc": 0.982608695652174,
+      "sens": 0.8,
+      "spec": 0.96,
+      "auroc_ci": [
+        0.9662474988136664,
+        0.9942809992776378
+      ],
+      "sens_ci": [
+        0.7087359529087991,
+        0.8770527753810756
+      ],
+      "spec_ci": [
+        0.9206278971765697,
+        0.9918065838180856
+      ],
+      "masked": {
+        "hide_center": 0.7852521739130436,
+        "center_only": 0.942191304347826
+      }
+    },
+    "nih": {
+      "n": 286,
+      "auroc": 0.7633629191321498,
+      "sens": 0.6307692307692307,
+      "spec": 0.7564102564102564,
+      "auroc_ci": [
+        0.7096146953405017,
+        0.8163802747988036
+      ],
+      "sens_ci": [
+        0.5327765656327398,
+        0.7181416414440496
+      ],
+      "spec_ci": [
+        0.6855195140863272,
+        0.82
+      ],
+      "masked": {
+        "hide_center": 0.5584319526627219,
+        "center_only": 0.7483234714003946
+      }
+    }
+  },
+  "probes": {
+    "source | image stats": 0.9583280000000001,
+    "source | border-only stats": 0.729088,
+    "source | aspect ratio only": 0.990144,
+    "source | raw size / file size": 1.0,
+    "guangzhou label | image stats": 0.8404320000000001,
+    "guangzhou label | border-only stats": 0.6375599999999999,
+    "guangzhou label | aspect ratio only": 0.50584,
+    "guangzhou label | raw size / file size": 0.9349520000000001,
+    "nih label | image stats": 0.621888,
+    "nih label | border-only stats": 0.5928880000000001,
+    "nih label | aspect ratio only": 0.42160000000000003,
+    "nih label | raw size / file size": 0.5007199999999999
+  },
+  "test_set_ids": {
+    "guangzhou": "663cc687",
+    "nih": "74d92a9a"
+  },
+  "source_only_baseline_auroc": 0.488
+}
