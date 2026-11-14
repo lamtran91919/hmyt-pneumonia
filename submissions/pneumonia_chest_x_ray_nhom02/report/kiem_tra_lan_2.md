@@ -64,8 +64,8 @@ Tính áp dụng cho bài toán của nhóm: Cao về ý tưởng, trung bình v
 ### B1. Kết quả hiện có
 | Mô hình | Tập đánh giá (cách chia, n) | Metric chính (giá trị, 95% CI nếu có) | Metric phụ | Nguồn số liệu (file / notebook / W&B) |
 |---|---|---|---|---|
-| Baseline 1 (Mốc 2) | Test 1.087 ảnh (Guangzhou 808, NIH 279); chia theo bệnh nhân nhưng gộp hai nguồn | NIH AUROC 0,802 [0,747–0,857]; Guangzhou 0,994 [0,991–0,997]; gộp 0,971 [0,961–0,979] | NIH: sens 0,688, spec 0,767; Guangzhou: sens 0,969, spec 0,964 | runs/guangzhou-nih_resizefirst_matchABS_s2/results.json và notebook ô EVALUATION, bootstrap, dashboard |
-| Mô hình đề xuất (Mốc 3) | Chia theo bệnh nhân, riêng từng nguồn (~71/14/14): train 2.865, val 562, test 555 (NIH 286, Guangzhou 269) | NIH AUROC 0,748 [0,689–0,802]; Guangzhou AUROC 0,988 [0,979–0,996]; gộp 0,903 [0,877–0,928] | NIH: sens 0,562, spec 0,795; Guangzhou: sens 0,945, spec 0,958 (ngưỡng riêng: NIH 0,577, Guangzhou 0,644) | runs/guangzhou-nih_resizefirst_matchAB_s2/results.json và notebook ô EVALUATION, bootstrap, dashboard |
+| Baseline 1 (Mốc 2) | Test 1.087 ảnh (Guangzhou 808, NIH 279); chia theo bệnh nhân nhưng gộp hai nguồn | NIH AUROC 0,802 [0,747–0,857]; Guangzhou 0,994 [0,991–0,997]; gộp 0,971 [0,961–0,979] | NIH: sens 0,688, spec 0,767; Guangzhou: sens 0,969, spec 0,964 | results/old_pipeline.ipynb ô EVALUATION, bootstrap
+| Mô hình đề xuất (Mốc 3) | Chia theo bệnh nhân, riêng từng nguồn (~71/14/14): train 2.865, val 562, test 555 (NIH 286, Guangzhou 269) | NIH AUROC 0,748 [0,689–0,802]; Guangzhou AUROC 0,988 [0,979–0,996]; gộp 0,903 [0,877–0,928] | NIH: sens 0,562, spec 0,795; Guangzhou: sens 0,945, spec 0,958 (ngưỡng riêng: NIH 0,577, Guangzhou 0,644) | results/results.json và notebook ô EVALUATION, bootstrap, dashboard |
 
 ### B2. Ablation (Mốc 3)
 | Cấu hình (bỏ / đổi thành phần nào) | Metric chính | Chênh lệch so với mô hình đầy đủ | Nguồn |
@@ -85,7 +85,7 @@ So sánh kết quả B1 với 2–3 bài trong A2. Nêu rõ những điểm làm
 |---|---|---|---|---|
 
 | Pipeline dữ liệu: đọc ảnh, ghép cặp, chia theo bệnh nhân từng nguồn  | 20224394 (data) + 20233963 | M3 | 9/11/2026 | Xong: notebook ô BUILD ONE DATAFRAME và PATIENT-LEVEL SPLIT |
-| Huấn luyện mô hình đề xuất, 4 run (hai nguồn × 2 biến thể ghép cặp, Guangzhou-only, NIH-only) | 20233963 | M3 | 9/11/2026  | Xong (1 seed): runs/*/results.json |
+| Huấn luyện mô hình đề xuất, 4 run (hai nguồn × 2 biến thể ghép cặp, Guangzhou-only, NIH-only) | 20233963 | M3 | 9/11/2026  | Xong (1 seed): results/results.json |
 | Kiểm định chéo nguồn (ngoại) | 20233963 | M3 | 9/11/2026  | Xong (1 seed): 2 run Guangzhou-only, NIH-only |
 | Ablation tiền xử lý (CLAHE, cân bằng histogram, tắt ghép cặp) | 20233963 | M4 | 22/11/2026 | Chưa |
 | Chạy lặp ≥ 3 seed cho cấu hình cuối | 20233963 | M4 | 22/11/2026  | Chưa (ô SEED NOISE cần ≥ 2 run cùng cấu hình) |
